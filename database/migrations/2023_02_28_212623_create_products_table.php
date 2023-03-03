@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('description')->nullable();
-            $table->jsonb('custom')->default('"[]"');
+            $table->jsonb('custom')->nullable();
             $table->integer('qty');
             $table->double('price');
             $table->double('discount');
