@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -44,6 +46,12 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Category::factory(10)->create();
         \App\Models\User::factory(500)->create();
-        \App\Models\Product::factory(50000)->create();
+        \App\Models\Product::factory(5000)->create();
+
+        $this->call([
+            LaratrustSeeder::class
+        ]);
+
+        User::where('id', 1)->first()->attachRole('admin');
     }
 }
