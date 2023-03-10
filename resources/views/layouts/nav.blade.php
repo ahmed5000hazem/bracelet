@@ -1,5 +1,5 @@
 <nav x-data="accordion(6)"
-    class="fixed top-0 z-40 flex flex-wrap items-center justify-start w-full px-4 py-3 tracking-wide text-white bg-slate-900 shadow-md bg-opacity-90 md:px-8 lg:px-14">
+    class="h-20 top-0 z-40 flex flex-wrap items-center justify-start w-full px-4 py-3 tracking-wide text-white bg-slate-900 shadow-md bg-opacity-90 md:px-8 lg:px-14">
     <!-- Left nav -->
     <div class="flex items-center">
         <a href="#" class="text-xl tracking-wide">
@@ -44,6 +44,37 @@
             <hr>
             <a href="#" class="hover:text-gray-900"><span>Link</span></a>
         </div>
+        <!-- Dropdown -->
+        <div x-data="{ open: false }" @mouseleave="open = false" class="relative inline-block"
+            :class="{ 'text-slate-400': open, 'text-slate-100': !open }">
+            <!-- Dropdown Toggle Button -->
+            <button @mouseover="open = true" class="flex items-center p-2 rounded-md">
+                <span class="mr-4">Hover Dropdown</span>
+                <span :class="open = !open ? '' : '-rotate-180'" class="transition-transform duration-500 transform">
+                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                </span>
+            </button>
+            <!-- End Dropdown Toggle Button -->
+
+            <!-- Dropdown Menu -->
+            <div x-show="open" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90"
+                class="absolute md:right-0 py-1 text-gray-500 bg-white rounded-lg shadow-xl min-w-max">
+                <a href="#" class="block px-4 py-1 hover:text-gray-900 hover:bg-gray-100">Lorem, ipsum.</a>
+                <a href="#" class="block px-4 py-1 hover:text-gray-900 hover:bg-gray-100">Lorem, ipsum
+                    dolor.</a>
+                <a href="#" class="block px-4 py-1 hover:text-gray-900 hover:bg-gray-100">Lorem ipsum dolor
+                    sit amet.</a>
+            </div>
+            <!-- End Dropdown Menu -->
+        </div>
+        <!-- End Dropdown 1 -->
         <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
@@ -75,8 +106,8 @@
     <div class="hidden w-full ml-12 lg:flex lg:items-center lg:w-auto">
         <div class="items-center flex-1 pt-6 justify-start text-lg text-slate-100 lg:pt-0 list-reset lg:flex">
             <div class="mr-3">
-                <a href="#" class="inline-block px-4 py-2 no-underline hover:text-slate-400 text-slate-100">
-                    Link
+                <a href="{{route('users')}}" class="inline-block px-4 py-2 no-underline hover:text-slate-400 text-slate-100">
+                    Users
                 </a>
             </div>
 

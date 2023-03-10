@@ -17,9 +17,16 @@
     @livewireScripts
 </head>
 
-<body class="font-sans text-gray-900 bg-gray-900 antialiased">
-    @include('layouts.nav')
-    @yield('content')
+<body class="font-sans text-slate-50 bg-gray-900 antialiased">
+    <main class="grid-cols-8 grid">
+        {{-- @include('layouts.sidebar') --}}
+        
+        <div class="col-span-8">
+            @include('layouts.nav')
+
+            @yield('content')
+        </div>
+    </main>
 </body>
 
 </html>
