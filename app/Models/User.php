@@ -8,11 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
+use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +27,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'phone' => $this->phone,
+            'email' => $this->email,
+        ];
+    }
 
     /**
      * The attributes that should be hidden for serialization.
