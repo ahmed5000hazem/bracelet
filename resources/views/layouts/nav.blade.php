@@ -112,8 +112,8 @@
             </div>
 
             <div class="mr-3">
-                <a href="#" class="inline-block px-4 py-2 no-underline hover:text-slate-400 text-slate-100">
-                    Link
+                <a href="{{route('products')}}" class="inline-block px-4 py-2 no-underline hover:text-slate-400 text-slate-100">
+                    Products
                 </a>
             </div>
 
