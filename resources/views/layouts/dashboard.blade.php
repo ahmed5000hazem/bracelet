@@ -27,6 +27,7 @@
             @yield('content')
         </div>
     </main>
+    @livewire('notifications')
 </body>
 
 </html>

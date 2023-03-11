@@ -27,6 +27,7 @@ class Index extends Component implements HasTable
             TextColumn::make('lastname'),
             TextColumn::make('phone'),
             TextColumn::make('email'),
+            TextColumn::make('birthdate')->date(),
             TextColumn::make('roles.display_name'),
         ];
     }
@@ -75,7 +76,7 @@ class Index extends Component implements HasTable
         return [
             Action::make('edit')
                 ->label('Edit post')
-                ->url(fn (User $record): string => route('users.edit', $record))
+                ->url(fn (User $record) => route('users.edit', ['user' => $record]))
         ];
     }
 

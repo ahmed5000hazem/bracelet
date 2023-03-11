@@ -1,5 +1,5 @@
 <div>
-    <div class="flex flex-col">
+    <div class="flex flex-col px-14 mb-24">
         <div class="links">
             @component('components.link')
                 @slot('href', route('users.create'))
